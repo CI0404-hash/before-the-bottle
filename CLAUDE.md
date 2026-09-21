@@ -1,5 +1,6 @@
 # Before the Bottle — 공개 사이트 규칙
 @private/rules.md
+@private/workflow.md
 content 폴더는 전부 웹에 공개된다. 공개 금지 기준은 위 비공개 규칙을 따른다.
 
 ## 글 작성
