@@ -1,0 +1,83 @@
+.btb-logo {
+  // wine and capsule colour. light mode value here, dark mode value below.
+  --btb-wine: #5a1e2b;
+  display: block;
+}
+
+:root[saved-theme="dark"] .btb-logo {
+  --btb-wine: #c27a8a;
+}
+
+// hidden unless the animation is actually going to play. This is also the whole appearance
+// for a repeat visit, a skip, and prefers-reduced-motion: no bottle, just the text below.
+.btb-logo-art {
+  display: none;
+  justify-content: center;
+  // the closing move animates this box's own height down to 0; without this, a flex
+  // container's default align-items:stretch would squash the svg itself to 0 height too.
+  align-items: flex-start;
+  margin: 1rem 0 0;
+
+  // the bottle <svg> and this container never get a transform (see btblogo.inline.ts) - the
+  // finale detaches a free-floating HTML clone of the label instead of moving the svg itself.
+  svg {
+    display: block;
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  // lines and text follow currentColor (site text colour). Only the fills below are themed.
+  .btb-wine,
+  .btb-capsule-fill {
+    fill: var(--btb-wine);
+  }
+
+  .btb-label-bg {
+    fill: var(--light);
+  }
+
+  // finished state has no roots or sap. The animation overrides this with inline styles.
+  .btb-roots,
+  .btb-sap {
+    opacity: 0;
+  }
+}
+
+.btb-logo[data-btb-anim="playing"] {
+  cursor: pointer;
+
+  .btb-logo-art {
+    display: flex;
+  }
+
+  .btb-meta-top {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+// h1.article-title and .btb-meta-bottom are later siblings of .btb-logo, not descendants.
+.btb-logo[data-btb-anim="playing"] ~ h1.article-title,
+.btb-logo[data-btb-anim="playing"] ~ .btb-meta-bottom {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btb-meta-top,
+.btb-meta-bottom {
+  margin: 0;
+  color: var(--gray);
+  font-family: var(--headerFont);
+  letter-spacing: 0.06em;
+}
+
+.btb-meta-top {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.btb-meta-bottom {
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+}
