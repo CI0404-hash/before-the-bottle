@@ -12,8 +12,9 @@ content 폴더는 전부 웹에 공개된다. 공개 금지 기준은 위 비공
 - 초안 단계에서는 사진을 attachments에 넣지 않는다. 사진은 공개 시점에 넣는다.
 
 ## 사진
-- attachments 폴더에 저장. 가로 2000px, WebP, 품질 90으로 변환.
+- attachments 폴더에 저장. 가로 최대 2000px (원본이 더 작으면 원본 크기 유지), WebP, 품질 90으로 변환.
 - EXIF(위치정보 포함)는 반드시 제거. 원본은 이 저장소에 넣지 않는다.
+- sample- 로 시작하는 사진은 디자인 확인용이며 공개 글에 쓰지 않는다.
 
 ## 카테고리
 soil / grape / cellar / tasting / log / tools
